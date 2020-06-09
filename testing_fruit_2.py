@@ -21,16 +21,23 @@ def single_loop_print(L):
         print(output)
 
 
-def fill_fruitbowl():
+def fill_fruitbowl(L):
+    type_of_fruit = get_string("What fruit would you like to add to the bowl?")
+    quantity_of_fruit = get_integer("How many of that fruit would you like to add?")
+    temporary_list = [type_of_fruit, quantity_of_fruit]
+    L.append(temporary_list)
+    print("." * 60)
+    print("You have entered {} {}s in the fruit bowl!".format(quantity_of_fruit, type_of_fruit))
+    print("." * 60)
 
 
 def menu():
+    fruitbowl_list = []
+    fill_fruitbowl(fruitbowl_list)
+
     my_menu = [
         ["R", "Review"],
-        ["Q", "Quit"]
-    ]
-
-    fruitbowl_list = [
+        ["Q", "Quit"],
     ]
 
     run = True
@@ -38,7 +45,7 @@ def menu():
         # printing main menu
         for i in range(0, len(my_menu)):
             print("{:3} : {}".format(my_menu[i][0], my_menu[i][1]))
-        option = get_string("Please choose option: -> ")
+        option = get_string("Please choose option: -> ").upper()
         print("." * 60)
         if option == "R":
             single_loop_print(fruitbowl_list)

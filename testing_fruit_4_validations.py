@@ -29,7 +29,7 @@ def print_with_indexes(L):
 
 def fill_fruitbowl(L):
     type_of_fruit = get_string("What fruit would you like to add to the bowl?")
-    quantity_of_fruit = get_integer("How many of that fruit would you like to add?")
+    quantity_of_fruit = get_validated_integer("How many of that fruit would you like to add?",0,200)
     temporary_list = [type_of_fruit, quantity_of_fruit]
     L.append(temporary_list)
     print("." * 60)
@@ -100,4 +100,3 @@ def menu():
 
 if __name__ == "__main__":
     menu()
-
